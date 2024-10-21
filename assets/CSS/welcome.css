@@ -7,19 +7,20 @@ body {
   background-size: cover;
 }
 img {
-  width: 25%;
+ 
   margin-top: 5%;
+  width: 200px;
 }
 h1 {
   color: white;
-  font-size: 4em;
+  font-size: 6em;
 
   line-height: 0.7;
-  margin-top: 10%;
+  margin-top: 6%;
 }
 h3 {
   color: #c2128d;
-  font-size: 2em;
+  font-size: 3em;
 
   font-weight: 600;
   margin-top: 6%;
@@ -29,6 +30,7 @@ strong {
   font-weight: bold;
 }
 p {
+  font-size: 1.8em;
   color: white;
   margin-top: 1.5%;
   line-height: 1.1;
@@ -40,22 +42,25 @@ ul {
   line-height: 1.5;
 }
 li {
+  font-size: 1.8em;
   margin-left: 1.2em;
   font-weight: 200;
 }
 
 label {
   color: white;
+  font-size: 1.8em;
 }
 form {
-  margin-top: 15%;
+  margin-top: 10%;
 }
 button {
   background-color: #00ffff;
-  padding: 1.5% 4%;
+  padding: 1.5% 5%;
   font-weight: 700;
   margin-left: 25%;
   color: #0b113b;
+  font-size: 2em;
  
 
   box-shadow: 0px 0px 13px 7px rgba(0, 255, 255, 0.32);
@@ -63,4 +68,11 @@ button {
 }
 footer{
     margin-bottom: 10%;
+}
+input{
+  width: 25px;
+  height: 25px;
+  vertical-align: sub;
+  margin-right: 1.6rem;
+  
 }
