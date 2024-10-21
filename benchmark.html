@@ -5,40 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/CSS/result.css" />
     <link rel="stylesheet" href="./assets/CSS/benchmark.css" />
-    <title>Document</title>
+    <title>Benchmark</title>
   </head>
-
-  <header>
-    <img src="./assets/img/epicode_logo.png" alt="logo web">
-  </header>
-
-  <main>
-    <form>
-      <p>Seleziona il livello e buona fortuna!</p>
-    
-      <input type="radio" id="Easy" name="satisfaction" value="Easy">
-      <label for="Easy" class="radio-label">Easy</label>
-    
-      <input type="radio" id="Medium" name="satisfaction" value="Medium">
-      <label for="Medium" class="radio-label">Medium</label>
-    
-      <input type="radio" id="Hard" name="satisfaction" value="Hard">
-      <label for="Hard" class="radio-label">Hard</label>
-    
-      <p id="second">
-      Quanti domande vuoi? <input type="number" required min="1" max="10"/> 
-      </p>
-
-      <button id="Start-button">Start</button>
-    </form>
-
-  </main>
-
-  <footer>
-    
-  </footer>
-
   <body>
+    <header>
+      <img src="./assets/img/epicode_logo.png" alt="logo web" />
+    </header>
+
+    <main>
+      <form id="form">
+        <p id="first">Select difficulty level and good luck!</p>
+        <div class="container">
+          <input type="radio" id="Easy" name="satisfaction" value="Easy" />
+          <label for="Easy" class="radio-label">Easy</label>
+        </div>
+        <div class="container">
+          <input type="radio" id="Medium" name="satisfaction" value="Medium" />
+          <label for="Medium" class="radio-label">Medium</label>
+        </div>
+        <div class="container">
+          <input type="radio" id="Hard" name="satisfaction" value="Hard" />
+          <label for="Hard" class="radio-label">Hard</label>
+        </div>
+        <label for="number" id="number-label">How many questions? (1-10)</label>
+        <input
+          id="number"
+          type="number"
+          required
+          min="1"
+          max="10"
+          placeholder="1..."
+        />
+        <button id="start-button">Start</button>
+      </form>
+    </main>
+
+    <footer></footer>
+
     <script src="./scripts/benchmark.js"></script>
   </body>
 </html>
