@@ -1,0 +1,13 @@
+body{
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    text-align: center;
+    color: white;
+}
+
+header img{
+    margin-top: 2em;
+    height: 4em;
+    margin-left: 6em;
+    margin-bottom: 2em;
+}
