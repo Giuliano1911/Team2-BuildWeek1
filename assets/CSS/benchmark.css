@@ -1,21 +1,35 @@
 body{
     background-image: url(../img/bg.jpg);
     background-size: cover;
-    text-align: center;
     color: white;
 }
 
 header img{
     margin-top: 2em;
-    height: 4em;
+    height: 3em;
     margin-left: 6em;
     margin-bottom: 2em;
 }
 
 main{
     margin: 3em;
+    text-align: center;
 }
 
 footer{
     margin: 3em;
+    text-align: center;
+}
+
+button{
+    margin: 3em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    padding-left: 6em;
+    padding-right: 6em;
+    font-weight: bold;
+    border-radius: 39%;
+    background-color: transparent;
+    color: white;
+    border: solid;
 }
