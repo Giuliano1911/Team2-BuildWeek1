@@ -3,11 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Feedback page" />
     <link rel="stylesheet" href="./assets/CSS/reset.css" />
     <link rel="stylesheet" href="./assets/CSS/feedback.css" />
-    <title>Document</title>
+    <title>Review</title>
   </head>
   <body>
+    <header>
+      <img id="logo" src="./assets/img/epicode_logo.png" alt="epicode-logo" />
+    </header>
+    <main>
+      <section id="title">
+        <h1>Tell us how it's going</h1>
+        <h3>
+          From 0 to 10, how likely are you to recommend EPICODE to a friend or a
+          colleague?
+        </h3>
+      </section>
+      <div id="stars">
+        <img src="./assets/img/star.svg" />
+        <img src="./assets/img/unselectedstar.svg" />
+        <img src="./assets/img/unselectedstar.svg" />
+        <img src="./assets/img/unselectedstar.svg" />
+        <img src="./assets/img/unselectedstar.svg" />
+        <img src="./assets/img/unselectedstar.svg" />
+        <img src="./assets/img/unselectedstar.svg" />
+        <img src="./assets/img/unselectedstar.svg" />
+        <img src="./assets/img/unselectedstar.svg" />
+        <img src="./assets/img/unselectedstar.svg" />
+      </div>
+      <form>
+        <label for="comment"
+          >Leave us an open feedback about your experience so far</label
+        >
+        <input type="text" id="comment" placeholder="Write your comment here" />
+      </form>
+    </main>
+    <footer>
+      <button
+        onclick="window.location.href = 'https://epicode.com/it/?utm_source=adwords&utm_campaign=Brand&utm_adgroup=brandphrase&utm_term=epicode&utm_medium=ppc&hsa_acc=1246633295&hsa_cam=11897141170&hsa_grp=115607542316&hsa_ad=639941754622&hsa_src=g&hsa_tgt=kwd-1083842420863&hsa_kw=epicode&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjw99e4BhDiARIsAISE7P8AziWYRpzg81ptiB-ilCd_FdZGIhojtYLQ-eBp2Z20K7vR8X21Zg8aAkPUEALw_wcB';"
+        id="epicode-button"
+      >
+        MORE INFO
+      </button>
+    </footer>
     <script src="./scripts/feedback.js"></script>
   </body>
 </html>
