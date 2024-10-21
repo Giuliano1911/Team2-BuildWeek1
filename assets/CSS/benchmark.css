@@ -16,20 +16,66 @@ main{
     text-align: center;
 }
 
-footer{
-    margin: 3em;
-    text-align: center;
+
+input[type="radio"] {
+    display: none;
 }
 
-button{
+form > p{
+    font-size: 60px;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    color: white;
+}
+  
+.radio-label {
+    font-size: 16px;
     margin: 3em;
     padding-bottom: 1em;
     padding-top: 1em;
-    padding-left: 6em;
-    padding-right: 6em;
+    padding-left: 7em;
+    padding-right: 7em;
     font-weight: bold;
-    border-radius: 39%;
+    border-radius: 40px 40px;
     background-color: transparent;
     color: white;
     border: solid;
+    cursor: pointer;
+}
+  
+input[type="radio"]:checked + .radio-label {
+    border-left-color: #d20094;
+    border-top-color: #d20094;
+    border-bottom-color: #900080;
+    border-right-color: #900080;
+    background: linear-gradient(56deg, rgba(210,0,148,1) 0%, rgba(144,0,128,1) 100%);
+}
+
+.radio-label:hover{
+    background: linear-gradient(166deg, rgba(210,0,148,1) 0%, rgba(144,0,128,1) 100%)
+}
+
+.radio-label:active {
+    position: relative;
+    top: 3px;
+}
+
+#second{
+    font-size: larger;
+    padding: 5em;
+}
+
+#second input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+}
+
+
+button{
+    padding: 1em;
+    font-size: larger;
+    background-color: #00ffff;
+    color: white;
 }
