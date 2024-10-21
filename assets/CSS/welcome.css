@@ -3,11 +3,10 @@ body {
   height: 100%;
   background-repeat: no-repeat;
   margin-left: 12%;
-  font-family: "Outfit";
+  font-family: 'Outfit';
   background-size: cover;
 }
 img {
- 
   margin-top: 5%;
   width: 200px;
 }
@@ -58,21 +57,19 @@ button {
   background-color: #00ffff;
   padding: 1.5% 5%;
   font-weight: 700;
-  margin-left: 25%;
+  margin-left: 4em;
   color: #0b113b;
   font-size: 2em;
- 
 
   box-shadow: 0px 0px 13px 7px rgba(0, 255, 255, 0.32);
   border: 0;
 }
-footer{
-    margin-bottom: 10%;
+footer {
+  margin-bottom: 10%;
 }
-input{
+input {
   width: 25px;
   height: 25px;
   vertical-align: sub;
   margin-right: 1.6rem;
-  
 }
