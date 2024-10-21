@@ -5,10 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/CSS/reset.css" />
     <link rel="stylesheet" href="./assets/CSS/welcome.css" />
-    <title>Document</title>
+    <title>welcome</title>
   </head>
   <body>
-    <header></header>
+    <header>
+      <img src="./assets/img/epicode_logo.png" alt="Logo Epicode" />
+    </header>
+    <main>
+      <h1>Welcome to <br /><strong>your exam</strong></h1>
+      <section>
+        <h3>Instructions</h3>
+        <p>
+          We don't expect most engineers to know the answers to all of these
+          <br />questions, so dont't worry if you're unsure of a few of them.
+        </p>
+        <ul>
+          <li>Each questions is <strong>timed</strong> and can only be <strong>answered once</strong>.</li>
+          <li>changing browers tab or opening other windows will <strong>invalidate the question.</strong></li>
+          <li>This exam will take approx <span>0-5 minutes</span></li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <form>
+        <input id="imputApproved" type="checkbox" required>
+        <label for="imputApproved"> I promise to answer myself without help from anyone</label>
+        <button>PROCEED</button>
+      </form>
+    </footer>
     <script src="./scripts/welcome.js"></script>
   </body>
 </html>
