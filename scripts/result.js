@@ -3,8 +3,8 @@ let correctAnswers = 6;
 let totalQuestions = 10;
 
 // Funzione per calcolare le percentuali
-const calculatePercentages = () => {
-  let correctPercentage = (correctAnswers / totalQuestions) * 100;
+const calculatePercentages = (correct, total) => {
+  let correctPercentage = (correct / total) * 100;
   let wrongPercentage = 100 - correctPercentage;
   return {
     // arrotonda i valori a 1 decimale (toFixed(1) serve per convertire il numero in stringa)
@@ -15,10 +15,14 @@ const calculatePercentages = () => {
 
 // Funzione per mostrare i risultati
 const showResults = () => {
-  const percentages = calculatePercentages();
+  // Recupera i valori dal localStorage
+  const correctAnswers = parseInt(localStorage.getItem('correctAnswers'));
+  const totalQuestions = parseInt(localStorage.getItem('totalQuestions'));
+
+  const percentages = calculatePercentages(correctAnswers, totalQuestions);
   const wrongAnswers = totalQuestions - correctAnswers;
 
-  // Aggiorna il div delle risposte corrette
+  //  div aggiornato delle risposte corrette
   const correctDiv = document.getElementById('correct');
   correctDiv.innerHTML = `
     <h2>Correct</h2>
@@ -26,7 +30,7 @@ const showResults = () => {
     <p class="questions">${correctAnswers}/${totalQuestions} questions</p>
   `;
 
-  // Aggiorna il div delle risposte sbagliate
+  // div aggiornato delle risposte sbagliate
   const wrongDiv = document.getElementById('wrong');
   wrongDiv.innerHTML = `
     <h2>Wrong</h2>
