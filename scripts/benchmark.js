@@ -284,10 +284,12 @@ const questionGenerator = (array, numb, i) => {
 
     const newButtonCorrect = document.createElement('button')
     newButtonCorrect.classList.add('radio-label')
+    newButtonCorrect.classList.add('button')
 
     newButtonCorrect.innerText = array[i].correct_answer
     const newButtonIncorrect = document.createElement('button')
     newButtonIncorrect.classList.add('radio-label')
+    newButtonIncorrect.classList.add('button')
 
     newButtonIncorrect.innerText = array[i].incorrect_answers[0]
     newDiv1.appendChild(newButtonCorrect)
@@ -295,6 +297,8 @@ const questionGenerator = (array, numb, i) => {
     main.appendChild(newDiv1)
     main.appendChild(newDiv2)
   } else {
+    const DivMaggiore1 = document.createElement('section')
+    const DivMaggiore3 = document.createElement('section')
     const newDiv1 = document.createElement('div')
     newDiv1.classList.add('container')
     const newDiv2 = document.createElement('div')
@@ -306,14 +310,19 @@ const questionGenerator = (array, numb, i) => {
 
     const newButtonCorrect = document.createElement('button')
     newButtonCorrect.classList.add('radio-label')
+    newButtonCorrect.classList.add('button')
     newButtonCorrect.innerText = array[i].correct_answer
 
     const newButtonIncorrect = document.createElement('button')
+    
     newButtonIncorrect.classList.add('radio-label')
+    newButtonIncorrect.classList.add('button')
     const newButtonIncorrect1 = document.createElement('button')
     newButtonIncorrect1.classList.add('radio-label')
+    newButtonIncorrect1.classList.add('button')
     const newButtonIncorrect2 = document.createElement('button')
     newButtonIncorrect2.classList.add('radio-label')
+    newButtonIncorrect2.classList.add('button')
 
     newButtonIncorrect.innerText = array[i].incorrect_answers[0]
     newButtonIncorrect1.innerText = array[i].incorrect_answers[1]
@@ -324,10 +333,12 @@ const questionGenerator = (array, numb, i) => {
     newDiv3.appendChild(newButtonIncorrect1)
     newDiv4.appendChild(newButtonIncorrect2)
 
-    main.appendChild(newDiv1)
-    main.appendChild(newDiv2)
-    main.appendChild(newDiv3)
-    main.appendChild(newDiv4)
+    main.appendChild(DivMaggiore1)
+    DivMaggiore1.appendChild(newDiv1)
+    DivMaggiore1.appendChild(newDiv2)
+    main.appendChild(DivMaggiore3)
+    DivMaggiore3.appendChild(newDiv3)
+    DivMaggiore3.appendChild(newDiv4)
   }
   const footer = document.getElementsByTagName('footer')[0]
   const newH4 = document.createElement('h4')
