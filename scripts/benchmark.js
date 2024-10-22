@@ -340,13 +340,128 @@ form.addEventListener('submit', function (e) {
   const difficultyValue = document.querySelector(
     'input[name="satisfaction"]:checked'
   ).value
-  const numberValue = document.getElementById('number').value
+  const numberValue = parseInt(document.getElementById('number').value)
   form.style.display = 'none'
 
-  for (let i = 0; i < numberValue; i++) {
-    questionGenerator(arrayChoose(difficultyValue), numberValue, i)
+  // Inizializzazione delle variabili per il quiz
+  let currentQuestion = 0; // Indice della domanda corrente
+  let questions = arrayChoose(difficultyValue).slice(0, numberValue); // Selezione delle domande in base alla difficoltà e al numero scelto
+  let userAnswers = new Array(numberValue).fill(null); // Array per memorizzare le risposte dell'utente
+  let timerElement; // Elemento DOM per il timer
+  let countdownTimer; // Riferimento al timer per il conto alla rovescia
+  let correctAnswers = 0; // Contatore delle risposte corrette
+  let wrongAnswers = 0; // Contatore delle risposte errate
+  
+  // Funzione per mostrare la prossima domanda
+  function showNextQuestion() {
+    if (currentQuestion < numberValue) {
+      clearMainContent(); // Pulisce il contenuto principale
+      questionGenerator(questions, numberValue, currentQuestion) // Genera la nuova domanda
+      startTimer() // Avvia il timer
+      addAnswerListeners() // Aggiunge i listener per le risposte
+    } else {
+      // Tutte le domande sono state risposte, termina il quiz
+      console.log("Quiz completato!")
+      showResults() // Mostra i risultati finali
+    }
   }
+
+  // Funzione per pulire il contenuto principale
+  function clearMainContent() {
+    const main = document.querySelector('main');
+    main.innerHTML = '';
+  }
+
+  // Funzione per creare l'elemento del timer
+  function createTimerElement() {
+    timerElement = document.createElement('div')
+    timerElement.id = 'timer'
+    // Impostazione degli stili per il timer
+    timerElement.style.position = 'fixed'
+    timerElement.style.top = '20px'
+    timerElement.style.right = '20px'
+    timerElement.style.fontSize = '40px'
+    timerElement.style.fontWeight = 'bold'
+    timerElement.style.color = 'white'
+    timerElement.style.padding = '10px'
+    timerElement.style.borderRadius = '50%'
+    timerElement.style.width = '80px'
+    timerElement.style.height = '80px'
+    timerElement.style.display = 'flex'
+    timerElement.style.justifyContent = 'center'
+    timerElement.style.alignItems = 'center'
+    timerElement.style.border = '10px solid #00FFFF'
+    timerElement.style.backgroundColor = 'transparent'
+    document.body.appendChild(timerElement)
+  }
+
+  // Funzione per avviare il timer
+  function startTimer() {
+    if (countdownTimer) {
+      clearInterval(countdownTimer);
+    }
+    let timeLeft = 60 // Tempo in secondi
+    countdownTimer = setInterval(() => {
+      if (timeLeft <= 0) {
+        clearInterval(countdownTimer)
+        timerElement.textContent = "Tempo scaduto!"
+        timerElement.style.borderColor = '#D20094'
+        moveToNextQuestion() // Passa alla prossima domanda se il tempo scade
+      } else {
+        timerElement.textContent = `${timeLeft}s`
+        // Calcola e aggiorna il progresso visivo del timer
+        const progress = (60 - timeLeft) / 60 * 360
+        timerElement.style.background = `conic-gradient(
+          #00FFFF ${progress}deg,
+          transparent ${progress}deg
+        )`
+        timeLeft--
+      }
+    }, 1000)
+  }
+
+  // Funzione per aggiungere i listener alle risposte
+  function addAnswerListeners() {
+    const answerButtons = document.querySelectorAll('.radio-label')
+    answerButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        if (userAnswers[currentQuestion] === null) {
+          userAnswers[currentQuestion] = button.innerText // Salva la risposta dell'utente
+          // Verifica se la risposta è corretta
+          if (button.innerText === questions[currentQuestion].correct_answer) {
+            correctAnswers++;
+          } else {
+            wrongAnswers++;
+          }
+          clearInterval(countdownTimer) // Ferma il timer
+          moveToNextQuestion() // Passa alla prossima domanda
+        }
+      })
+    })
+  }
+
+  // Funzione per passare alla prossima domanda
+  function moveToNextQuestion() {
+    currentQuestion++
+    showNextQuestion()
+  }
+
+  // Funzione per mostrare i risultati finali
+  function showResults() {
+    // Salva i risultati in localStorage per l'uso in result.js
+    localStorage.setItem('correctAnswers', correctAnswers);
+    localStorage.setItem('wrongAnswers', wrongAnswers);
+    localStorage.setItem('totalQuestions', numberValue);
+    
+    // Reindirizza alla pagina dei risultati
+    window.location.href = 'result.html';
+  }
+
+  createTimerElement() // Crea l'elemento del timer
+  showNextQuestion() // Avvia il quiz mostrando la prima domanda
 })
+
+
 
 // const shuffle = (array) => {
 //   for (let i = array.length - 1; i > 0; i--) {
