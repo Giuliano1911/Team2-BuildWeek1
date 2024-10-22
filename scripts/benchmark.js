@@ -376,7 +376,7 @@ form.addEventListener('submit', function (e) {
   const extractRandomQuestions = (allQuestions, numberToExtract) => {
     const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, numberToExtract);
-  };
+  }; console.log(extractRandomQuestions(arrayChoose(difficultyValue), numberValue));
 
   // Funzione per randomizzare la posizione delle risposte
   // question è la domanda corrente

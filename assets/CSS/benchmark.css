@@ -35,7 +35,7 @@ fieldset {
   margin: 1em;
 }
 
-.radio-label {
+.difficulty-label {
   width: 300px;
   font-size: 16px;
   padding: 1em 5em;
@@ -48,7 +48,7 @@ fieldset {
   margin: 1em;
 }
 
-input[type='radio']:checked + .radio-label {
+input[type='radio']:checked + .difficulty-label {
   border-left-color: #d20094;
   border-top-color: #d20094;
   border-bottom-color: #900080;
@@ -60,7 +60,7 @@ input[type='radio']:checked + .radio-label {
   );
 }
 
-.radio-label:hover {
+.difficulty-label:hover {
   background: linear-gradient(
     166deg,
     rgba(210, 0, 148, 1) 0%,
@@ -68,7 +68,7 @@ input[type='radio']:checked + .radio-label {
   );
 }
 
-.radio-label:active {
+.difficulty-label:active {
   position: relative;
   top: 3px;
 }
