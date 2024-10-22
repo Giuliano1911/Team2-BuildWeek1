@@ -14,7 +14,7 @@ header {
 }
 
 header img {
-  width: 200px;
+  width: 150px;
 }
 
 #title {
@@ -23,13 +23,15 @@ header img {
 }
 
 #title h1 {
-  font-size: 36px;
+  font-size: 60px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
 #title h3 {
-  font-size: 20px;
+  font-size: 44px;
+  color: #D20094;
+  margin-bottom: 20px;
 }
 
 #result {
@@ -37,7 +39,7 @@ header img {
   justify-content: space-between;
   align-items: center;
   flex-grow: 1;
-  padding: 0 70px;
+  padding: 0 100px;
 }
 
 #correct, #wrong {
@@ -48,44 +50,81 @@ header img {
 }
 
 #correct h2, #wrong h2 {
-  font-size: 20px;
+  font-size: 44px;
   margin-bottom: 10px;
-  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+.percentage {
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.questions {
+  font-size: 18px;
+}
+
+#correct .percentage {
+  color: #00FFFF;
+}
+
+#wrong .percentage {
+  color: #D20094;
 }
 
 #graphic-container {
   flex-basis: 50%;
-  height: 300px;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 #donut {
-  width: 300px;
-  height: 300px;
-  /* gradient */
-  background: conic-gradient(
-    /*percentuale di rotazione dei colori (da utilizzare in javascript pe)*/
-    #00FFFF 0deg 216deg,
-    #D20094 216deg 360deg
-  );
+  width: 400px;
+  height: 400px;
   border-radius: 50%;
   position: relative;
 }
 
-/* before è un elemento che si trova sopra il donut */
-/* content è il contenuto dell'elemento */
 #donut::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   background-color: #0C113B;
   border-radius: 50%;
+}
+
+#text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 50%;
+}
+
+#text h2 {
+  font-size: 20px;
+  color: #00FFFF;
+  margin-bottom: 8px;
+}
+
+#text h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+#text p {
+  font-size: 12px;
+  line-height: 1.4;
 }
 
 footer {
@@ -97,15 +136,15 @@ footer {
 footer a {
   text-decoration: none;
   color: #fff;
-  border: 1px solid #fff;
-  padding: 10px 40px;
+  background-color: #00FFFF;
+  padding: 15px 50px;
+  font-size: 24px;
+  font-weight: 700;
   transition: background-color 0.3s, color 0.3s;
 }
 
 footer a:hover {
-  background-color: #fff;
-  color: #000;
-  font-family: 'Outfit', sans-serif;
-  /* effetto glow */
+  background-color: #D20094;
+  color: #fff;
   box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
 }
