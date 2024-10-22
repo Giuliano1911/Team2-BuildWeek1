@@ -18,10 +18,14 @@ input[type='radio'] {
   display: none;
 }
 
-form > p {
+p {
   font-size: 60px;
   padding-bottom: 1em;
   color: white;
+}
+
+fieldset {
+  border: none;
 }
 
 .container {
@@ -91,4 +95,8 @@ input[type='radio']:checked + .radio-label {
   background-color: #00ffff;
   -webkit-box-shadow: 0px 0px 14px 3px #00ffff;
   box-shadow: 0px 0px 14px 3px #00ffff;
+}
+
+.text-color {
+  color: #d20094;
 }
