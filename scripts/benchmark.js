@@ -268,84 +268,83 @@ const arrayChoose = (diff) => {
     return hardQuestions
   }
 }
-
-const questionGenerator = (array, numb, i) => {
+// array è l'array delle domande
+// numb è il numero di domande
+// i è il numero della domanda corrente
+// randomizedAnswers è l'array delle risposte randomizzate
+const questionGenerator = (array, numb, i, randomizedAnswers) => {
   const main = document.getElementsByTagName('main')[0]
-
+// crea il paragrafo per la domanda
   const newP = document.createElement('p')
   newP.innerText = array[i].question
+  newP.style.fontSize = '24px'
+  newP.style.marginBottom = '20px'
+  newP.style.color = 'white'
   main.appendChild(newP)
+// crea il div per le risposte
+  const answerContainer = document.createElement('div')
+  answerContainer.style.display = 'flex'
+  answerContainer.style.justifyContent = 'center'
+  answerContainer.style.flexWrap = 'wrap'
+// crea i bottoni per le risposte randomizzate
+  answerContainer.style.display = 'grid';
+  answerContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
+  answerContainer.style.gridGap = '10px';
+  answerContainer.style.maxWidth = '400px';
+  answerContainer.style.margin = '0 auto';
+//funzione per creare i bottoni per le risposte randomizzate
+  randomizedAnswers.forEach(answer => {
+    const button = document.createElement('button')
+    button.classList.add('radio-label', 'button')
+    button.innerText = answer
+    button.style.backgroundColor = '#00FFFF'
+    button.style.color = '#0B113B'
+    button.style.border = 'none'
+    button.style.borderRadius = '25px'
+    button.style.padding = '10px'
+    button.style.fontSize = '18px'
+    button.style.cursor = 'pointer'
+    button.style.transition = 'all 0.3s ease'
+    button.style.width = '100%'
+    button.style.height = '100%'
+//funzione per cambiare il colore del bottone quando il mouse si sovrappone
+    button.addEventListener('mouseover', () => {
+      button.style.backgroundColor = '#D20094'
+      button.style.color = 'white'
+    })
 
-  if (array[i].type === 'boolean') {
-    const newDiv1 = document.createElement('div')
-    newDiv1.classList.add('container')
-    const newDiv2 = document.createElement('div')
-    newDiv2.classList.add('container')
+    button.addEventListener('mouseout', () => {
+      button.style.backgroundColor = '#00FFFF'
+      button.style.color = '#0B113B'
+    })
 
-    const newButtonCorrect = document.createElement('button')
-    newButtonCorrect.classList.add('radio-label')
-    newButtonCorrect.classList.add('button')
+    answerContainer.appendChild(button)
+  })
 
-    newButtonCorrect.innerText = array[i].correct_answer
-    const newButtonIncorrect = document.createElement('button')
-    newButtonIncorrect.classList.add('radio-label')
-    newButtonIncorrect.classList.add('button')
-
-    newButtonIncorrect.innerText = array[i].incorrect_answers[0]
-    newDiv1.appendChild(newButtonCorrect)
-    newDiv2.appendChild(newButtonIncorrect)
-    main.appendChild(newDiv1)
-    main.appendChild(newDiv2)
-  } else {
-    const DivMaggiore1 = document.createElement('section')
-    const DivMaggiore3 = document.createElement('section')
-    const newDiv1 = document.createElement('div')
-    newDiv1.classList.add('container')
-    const newDiv2 = document.createElement('div')
-    newDiv2.classList.add('container')
-    const newDiv3 = document.createElement('div')
-    newDiv3.classList.add('container')
-    const newDiv4 = document.createElement('div')
-    newDiv4.classList.add('container')
-
-    const newButtonCorrect = document.createElement('button')
-    newButtonCorrect.classList.add('radio-label')
-    newButtonCorrect.classList.add('button')
-    newButtonCorrect.innerText = array[i].correct_answer
-
-    const newButtonIncorrect = document.createElement('button')
-    
-    newButtonIncorrect.classList.add('radio-label')
-    newButtonIncorrect.classList.add('button')
-    const newButtonIncorrect1 = document.createElement('button')
-    newButtonIncorrect1.classList.add('radio-label')
-    newButtonIncorrect1.classList.add('button')
-    const newButtonIncorrect2 = document.createElement('button')
-    newButtonIncorrect2.classList.add('radio-label')
-    newButtonIncorrect2.classList.add('button')
-
-    newButtonIncorrect.innerText = array[i].incorrect_answers[0]
-    newButtonIncorrect1.innerText = array[i].incorrect_answers[1]
-    newButtonIncorrect2.innerText = array[i].incorrect_answers[2]
-
-    newDiv1.appendChild(newButtonCorrect)
-    newDiv2.appendChild(newButtonIncorrect)
-    newDiv3.appendChild(newButtonIncorrect1)
-    newDiv4.appendChild(newButtonIncorrect2)
-
-    main.appendChild(DivMaggiore1)
-    DivMaggiore1.appendChild(newDiv1)
-    DivMaggiore1.appendChild(newDiv2)
-    main.appendChild(DivMaggiore3)
-    DivMaggiore3.appendChild(newDiv3)
-    DivMaggiore3.appendChild(newDiv4)
-  }
+  main.appendChild(answerContainer)
+// crea il footer per il numero della domanda
+// i è il numero della domanda corrente
+// numb è il numero di domande
   const footer = document.getElementsByTagName('footer')[0]
+  footer.innerHTML = '' // Pulisce il contenuto esistente del footer
   const newH4 = document.createElement('h4')
-  newH4.innerText = 'Question' + (i + 1) + '/' + numb
+  const questionNumber = document.createElement('span')
+  questionNumber.textContent = `QUESTION ${i + 1}`
+  questionNumber.style.color = 'white'
+  const separator = document.createElement('span')
+  separator.textContent = '/'
+  separator.style.color = '#00FFFF'
+  const totalQuestions = document.createElement('span')
+  totalQuestions.textContent = numb
+  totalQuestions.style.color = '#D20094'
+  newH4.appendChild(questionNumber)
+  newH4.appendChild(separator)
+  newH4.appendChild(totalQuestions)
+  newH4.style.textAlign = 'center'
+  newH4.style.marginTop = '20px'
   footer.appendChild(newH4)
 }
-
+// funzione per prevenire il refresh della pagina
 form.addEventListener('submit', function (e) {
   e.preventDefault()
   const difficultyValue = document.querySelector(
@@ -454,23 +453,32 @@ form.addEventListener('submit', function (e) {
   };
 
   // Funzione per aggiungere i listener alle risposte
-  // randomizedAnswers è l'array delle risposte randomizzate (si trova nella funzione showNextQuestion)
   const addAnswerListeners = (randomizedAnswers) => {
     const answerButtons = document.querySelectorAll('.radio-label');
     answerButtons.forEach((button, index) => {
-      // if serve per evitare che il bottone venga cliccato più volte
       button.addEventListener('click', () => {
         if (userAnswers[currentQuestion] === undefined) {
           userAnswers[currentQuestion] = randomizedAnswers[index];
-          // if serve per controllare se la risposta è corretta
           if (randomizedAnswers[index] === questions[currentQuestion].correct_answer) {
             correctAnswers++;
+            button.style.backgroundColor = '#4CAF50' // Verde per risposta corretta
           } else {
             wrongAnswers++;
+            button.style.backgroundColor = '#F44336' // Rosso per risposta sbagliata
+            // Evidenzia la risposta corretta
+            answerButtons.forEach((btn, idx) => {
+              if (randomizedAnswers[idx] === questions[currentQuestion].correct_answer) {
+                btn.style.backgroundColor = '#4CAF50'
+              }
+            })
           }
-          // clearInterval serve per fermare il timer
+          button.style.color = 'white'
+          
+          // Disabilita tutti i bottoni dopo la risposta
+          answerButtons.forEach(btn => btn.disabled = true)
+          
           clearInterval(countdownTimer);
-          moveToNextQuestion();
+          setTimeout(moveToNextQuestion, 2000); // Passa alla prossima domanda dopo 2 secondi
         }
       });
     });
@@ -479,7 +487,11 @@ form.addEventListener('submit', function (e) {
   // Funzione per passare alla prossima domanda
   const moveToNextQuestion = () => {
     currentQuestion++;
-    showNextQuestion();
+    if (currentQuestion < questions.length) {
+      showNextQuestion();
+    } else {
+      showResults();
+    }
   };
 
   // Funzione per mostrare i risultati finali
@@ -509,3 +521,4 @@ form.addEventListener('submit', function (e) {
 // array = array.filter(function (item) {
 //   return item !== n
 // 
+
