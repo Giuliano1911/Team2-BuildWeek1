@@ -18,10 +18,14 @@ input[type='radio'] {
   display: none;
 }
 
-form > p {
+p {
   font-size: 60px;
   padding-bottom: 1em;
   color: white;
+}
+
+fieldset {
+  border: none;
 }
 
 .container {

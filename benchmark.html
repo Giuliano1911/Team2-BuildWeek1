@@ -14,19 +14,26 @@
 
     <main>
       <form id="form">
-        <p id="first">Select difficulty level and good luck!</p>
-        <div class="container">
-          <input type="radio" id="Easy" name="satisfaction" value="Easy" />
-          <label for="Easy" class="radio-label">Easy</label>
-        </div>
-        <div class="container">
-          <input type="radio" id="Medium" name="satisfaction" value="Medium" />
-          <label for="Medium" class="radio-label">Medium</label>
-        </div>
-        <div class="container">
-          <input type="radio" id="Hard" name="satisfaction" value="Hard" />
-          <label for="Hard" class="radio-label">Hard</label>
-        </div>
+        <p>Select difficulty level and good luck!</p>
+        <fieldset id="difficulty">
+          <div class="container">
+            <input type="radio" id="Easy" name="satisfaction" value="Easy" />
+            <label for="Easy" class="radio-label">Easy</label>
+          </div>
+          <div class="container">
+            <input
+              type="radio"
+              id="Medium"
+              name="satisfaction"
+              value="Medium"
+            />
+            <label for="Medium" class="radio-label">Medium</label>
+          </div>
+          <div class="container">
+            <input type="radio" id="Hard" name="satisfaction" value="Hard" />
+            <label for="Hard" class="radio-label">Hard</label>
+          </div>
+        </fieldset>
         <label for="number" id="number-label">How many questions? (1-10)</label>
         <input
           id="number"
