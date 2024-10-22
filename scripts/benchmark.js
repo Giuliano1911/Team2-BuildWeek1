@@ -89,7 +89,7 @@ let mediumQuestions = [
     question:
       'Who is the character that tries to kill Walter in the fifth season?',
     correct_answer: 'Todd Alquist',
-    incorrect_answers: ['Gus Fring', 'Hank Schrader', 'Saul Goodman'],
+    incorrect_answers: ['Gustavo Fring', 'Hank Schrader', 'Saul Goodman'],
   },
   {
     category: 'Breaking:Bad',
@@ -128,7 +128,7 @@ let mediumQuestions = [
     type: 'multiple',
     difficulty: 'medium',
     question: "What is Walter's main motivation for entering the drug trade?",
-    correct_answer: 'Money for his family',
+    correct_answer: 'Money',
     incorrect_answers: ['Revenge', 'Fame', 'Power'],
   },
   {
@@ -269,31 +269,70 @@ const arrayChoose = (diff) => {
   }
 }
 
-const questionGenerator = (array, numb) => {
+const questionGenerator = (array, numb, i) => {
   const main = document.getElementsByTagName('main')[0]
-  for (let i = 0; i < numb; i++) {
-    const newP = document.createElement('p')
-    newP.innerText = array[i].question
-    console.log(newP)
-    main.appendChild(newP)
 
-    if (array[i].type === 'boolean') {
-      const newDiv = document.createElement('div')
-      newDiv.classList.add('container')
+  const newP = document.createElement('p')
+  newP.innerText = array[i].question
+  main.appendChild(newP)
 
-      const newButtonCorrect = document.createElement('button')
-      newButtonCorrect.classList.add('radio-label')
+  if (array[i].type === 'boolean') {
+    const newDiv1 = document.createElement('div')
+    newDiv1.classList.add('container')
+    const newDiv2 = document.createElement('div')
+    newDiv2.classList.add('container')
 
-      newButtonCorrect.innerText = array[i].correct_answer
-      const newButtonIncorrect = document.createElement('button')
-      newButtonIncorrect.classList.add('radio-label')
+    const newButtonCorrect = document.createElement('button')
+    newButtonCorrect.classList.add('radio-label')
 
-      newButtonIncorrect.innerText = array[i].incorrect_answers
-      newDiv.appendChild(newButtonCorrect)
-      newDiv.appendChild(newButtonIncorrect)
-      main.appendChild(newDiv)
-    }
+    newButtonCorrect.innerText = array[i].correct_answer
+    const newButtonIncorrect = document.createElement('button')
+    newButtonIncorrect.classList.add('radio-label')
+
+    newButtonIncorrect.innerText = array[i].incorrect_answers[0]
+    newDiv1.appendChild(newButtonCorrect)
+    newDiv2.appendChild(newButtonIncorrect)
+    main.appendChild(newDiv1)
+    main.appendChild(newDiv2)
+  } else {
+    const newDiv1 = document.createElement('div')
+    newDiv1.classList.add('container')
+    const newDiv2 = document.createElement('div')
+    newDiv2.classList.add('container')
+    const newDiv3 = document.createElement('div')
+    newDiv3.classList.add('container')
+    const newDiv4 = document.createElement('div')
+    newDiv4.classList.add('container')
+
+    const newButtonCorrect = document.createElement('button')
+    newButtonCorrect.classList.add('radio-label')
+    newButtonCorrect.innerText = array[i].correct_answer
+
+    const newButtonIncorrect = document.createElement('button')
+    newButtonIncorrect.classList.add('radio-label')
+    const newButtonIncorrect1 = document.createElement('button')
+    newButtonIncorrect1.classList.add('radio-label')
+    const newButtonIncorrect2 = document.createElement('button')
+    newButtonIncorrect2.classList.add('radio-label')
+
+    newButtonIncorrect.innerText = array[i].incorrect_answers[0]
+    newButtonIncorrect1.innerText = array[i].incorrect_answers[1]
+    newButtonIncorrect2.innerText = array[i].incorrect_answers[2]
+
+    newDiv1.appendChild(newButtonCorrect)
+    newDiv2.appendChild(newButtonIncorrect)
+    newDiv3.appendChild(newButtonIncorrect1)
+    newDiv4.appendChild(newButtonIncorrect2)
+
+    main.appendChild(newDiv1)
+    main.appendChild(newDiv2)
+    main.appendChild(newDiv3)
+    main.appendChild(newDiv4)
   }
+  const footer = document.getElementsByTagName('footer')[0]
+  const newH4 = document.createElement('h4')
+  newH4.innerText = 'Question' + (i + 1) + '/' + numb
+  footer.appendChild(newH4)
 }
 
 form.addEventListener('submit', function (e) {
@@ -304,7 +343,9 @@ form.addEventListener('submit', function (e) {
   const numberValue = document.getElementById('number').value
   form.style.display = 'none'
 
-  questionGenerator(arrayChoose(difficultyValue), numberValue)
+  for (let i = 0; i < numberValue; i++) {
+    questionGenerator(arrayChoose(difficultyValue), numberValue, i)
+  }
 })
 
 // const shuffle = (array) => {
