@@ -7,18 +7,22 @@ body {
 }
 
 #logo {
-  width: 200px;
+  margin-top: 2em;
+    width: 200px;
+    margin-bottom: 2em;
+    padding-left: 9em;
+    padding-top: 1em;
 }
 
 header {
-  text-align: left;
-  margin: 6em 8em;
+text-align: left;
+
 }
 
 h1 {
   font-size: 4em;
   font-weight: 600;
-  margin: 2rem 0;
+  margin-bottom: 2rem;
 }
 
 h3 {
@@ -61,7 +65,7 @@ form input {
 }
 
 footer button {
-  margin-top: 3rem;
+  margin-top: 2rem;
   padding: 1.5rem 4rem;
   font-size: 1.5em;
   font-weight: 600;
@@ -70,4 +74,5 @@ footer button {
   background-color: #00ffff;
   border: none;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
+  margin-bottom: 3rem;
 }

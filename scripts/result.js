@@ -57,7 +57,7 @@ const showResults = () => {
   } else {
     const textDiv = document.getElementById('text');
     textDiv.innerHTML = `
-      <h2>You dont pass the exam</h2>
+      <h2>You don't pass the exam</h2>
     `;
   }
 
