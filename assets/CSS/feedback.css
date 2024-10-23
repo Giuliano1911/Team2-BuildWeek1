@@ -7,12 +7,16 @@ body {
 }
 
 #logo {
-  width: 200px;
+  margin-top: 2em;
+    width: 200px;
+    margin-bottom: 2em;
+    padding-left: 9em;
+    padding-top: 1em;
 }
 
 header {
-  text-align: left;
-  margin: 6em 8em;
+text-align: left;
+
 }
 
 h1 {
@@ -70,4 +74,5 @@ footer button {
   background-color: #00ffff;
   border: none;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
+  margin-bottom: 3rem;
 }
