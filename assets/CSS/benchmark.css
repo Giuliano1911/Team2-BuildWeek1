@@ -54,6 +54,7 @@ fieldset {
   border-top-color: #d20094;
   border-bottom-color: #900080;
   border-right-color: #900080;
+  background-color: rgba(100, 100, 100, 0.3);
 }
 
 input[type='radio']:checked + .difficulty-label {
