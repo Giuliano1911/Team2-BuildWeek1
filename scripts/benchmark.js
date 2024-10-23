@@ -295,7 +295,7 @@ const questionGenerator = (array, numb, i, randomizedAnswers) => {
     const button = document.createElement('button')
     button.classList.add('radio-label', 'button')
     button.innerText = answer
-    button.style.backgroundColor = 'transparent'
+    button.style.backgroundColor = 'rgba(100, 100, 100, 0.3)'
     button.style.color = 'white'
     button.style.borderRadius = '30px 30px 30px 30px'
     button.style.padding = '1em'
