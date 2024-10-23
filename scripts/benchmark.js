@@ -277,9 +277,7 @@ const questionGenerator = (array, numb, i, randomizedAnswers) => {
 // crea il paragrafo per la domanda
   const newP = document.createElement('p')
   newP.innerText = array[i].question
-  newP.style.fontSize = '24px'
-  newP.style.marginBottom = '20px'
-  newP.style.color = 'white'
+  newP.classList.add('p')
   main.appendChild(newP)
 // crea il div per le risposte
   const answerContainer = document.createElement('div')
@@ -297,27 +295,15 @@ const questionGenerator = (array, numb, i, randomizedAnswers) => {
     const button = document.createElement('button')
     button.classList.add('radio-label', 'button')
     button.innerText = answer
-    button.style.backgroundColor = '#00FFFF'
-    button.style.color = '#0B113B'
-    button.style.border = 'none'
-    button.style.borderRadius = '25px'
-    button.style.padding = '10px'
+    button.style.backgroundColor = 'transparent'
+    button.style.color = 'white'
+    button.style.borderRadius = '30px 30px 30px 30px'
+    button.style.padding = '1em'
     button.style.fontSize = '18px'
     button.style.cursor = 'pointer'
     button.style.transition = 'all 0.3s ease'
-    button.style.width = '100%'
-    button.style.height = '100%'
-//funzione per cambiare il colore del bottone quando il mouse si sovrappone
-    button.addEventListener('mouseover', () => {
-      button.style.backgroundColor = '#D20094'
-      button.style.color = 'white'
-    })
-
-    button.addEventListener('mouseout', () => {
-      button.style.backgroundColor = '#00FFFF'
-      button.style.color = '#0B113B'
-    })
-
+  
+    
     answerContainer.appendChild(button)
   })
 
@@ -341,7 +327,7 @@ const questionGenerator = (array, numb, i, randomizedAnswers) => {
   newH4.appendChild(separator)
   newH4.appendChild(totalQuestions)
   newH4.style.textAlign = 'center'
-  newH4.style.marginTop = '20px'
+  newH4.style.marginTop = '15em'
   footer.appendChild(newH4)
 }
 // funzione per prevenire il refresh della pagina
