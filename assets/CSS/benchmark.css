@@ -21,9 +21,10 @@ input[type='radio'] {
 }
 
 p {
-  font-size: 60px;
-  margin: 2em;
+  font-size: 50px;
+  margin-bottom: 2em;
   color: white;
+  margin-top: 2em;
 }
 
 fieldset {
@@ -35,17 +36,23 @@ fieldset {
   margin: 1em;
 }
 
+.button{
+  border-left: '3px solid #8f8f8f'
+}
+
 .difficulty-label {
-  width: 300px;
   font-size: 16px;
   padding: 1em 5em;
   font-weight: bold;
   border-radius: 30px 30px 30px 30px;
-  background-color: #22284e;
   color: white;
   border: 3px solid;
   cursor: pointer;
   margin: 1em;
+  border-left-color: #d20094;
+  border-top-color: #d20094;
+  border-bottom-color: #900080;
+  border-right-color: #900080;
 }
 
 input[type='radio']:checked + .difficulty-label {
@@ -69,6 +76,11 @@ input[type='radio']:checked + .difficulty-label {
 }
 
 .difficulty-label:active {
+  position: relative;
+  top: 3px;
+}
+
+.button:active {
   position: relative;
   top: 3px;
 }
