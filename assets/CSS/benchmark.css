@@ -107,3 +107,61 @@ input[type='radio']:checked + .difficulty-label {
 footer{
   text-align: center;
 }
+
+#timer {
+  font-family: 'Inter', sans-serif;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  width: 80px; 
+  height: 80px; 
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+/* Quando il timer arriva a 0, il font si riduce */
+#timer.time-up {
+  font-size: 3px;
+  white-space: nowrap;
+}
+
+#timer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    /* --progress è una variabile CSS che viene impostata nel JS */
+    #00FFFF var(--progress, 0deg),
+    transparent var(--progress, 0deg)
+  );
+  /* mask è un effetto che si applica al bordo del timer per far apparire il colore solo al centro */
+  mask: radial-gradient(transparent 55%, black 55%);
+  -webkit-mask: radial-gradient(transparent 55%, black 55%);
+}
+
+#time-up-message {
+  font-family: 'Inter', sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #D20094;
+  font-size: 48px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}

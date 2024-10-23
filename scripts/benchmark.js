@@ -410,21 +410,6 @@ form.addEventListener('submit', function (e) {
   const createTimerElement = () => {
     timerElement = document.createElement('div');
     timerElement.id = 'timer';
-    timerElement.style.position = 'fixed';
-    timerElement.style.top = '20px';
-    timerElement.style.right = '20px';
-    timerElement.style.fontSize = '40px';
-    timerElement.style.fontWeight = 'bold';
-    timerElement.style.color = 'white';
-    timerElement.style.padding = '10px';
-    timerElement.style.borderRadius = '50%';
-    timerElement.style.width = '80px';
-    timerElement.style.height = '80px';
-    timerElement.style.display = 'flex';
-    timerElement.style.justifyContent = 'center';
-    timerElement.style.alignItems = 'center';
-    timerElement.style.border = '10px solid #00FFFF';
-    timerElement.style.backgroundColor = 'transparent';
     document.body.appendChild(timerElement);
   };
 
@@ -434,22 +419,34 @@ form.addEventListener('submit', function (e) {
       clearInterval(countdownTimer);
     }
     let timeLeft = 60;
+    timerElement.classList.remove('time-up');
     countdownTimer = setInterval(() => {
+      // se il tempo è finito, mostra il messaggio e passa alla prossima domanda
       if (timeLeft <= 0) {
         clearInterval(countdownTimer);
-        timerElement.textContent = "Tempo scaduto!";
-        timerElement.style.borderColor = '#D20094';
-        moveToNextQuestion();
+        timerElement.textContent = "0";
+        showTimeUpMessage();
       } else {
-        timerElement.textContent = `${timeLeft}s`;
+        // se il tempo non è finito, mostra il tempo rimanente
+        timerElement.textContent = `${timeLeft}`;
         const progress = (60 - timeLeft) / 60 * 360;
-        timerElement.style.background = `conic-gradient(
-          #00FFFF ${progress}deg,
-          transparent ${progress}deg
-        )`;
+        timerElement.style.setProperty('--progress', `${progress}deg`);
         timeLeft--;
       }
     }, 1000);
+  };
+
+  // Funzione per mostrare il messaggio di tempo scaduto
+  const showTimeUpMessage = () => {
+    const timeUpDiv = document.createElement('div');
+    timeUpDiv.id = 'time-up-message';
+    timeUpDiv.textContent = 'Tempo scaduto!';
+    document.body.appendChild(timeUpDiv);
+
+    setTimeout(() => {
+      document.body.removeChild(timeUpDiv);
+      moveToNextQuestion();
+    }, 2000); // passa alla prossima domanda dopo 2 secondi
   };
 
   // Funzione per aggiungere i listener alle risposte
@@ -488,7 +485,9 @@ form.addEventListener('submit', function (e) {
   const moveToNextQuestion = () => {
     currentQuestion++;
     if (currentQuestion < questions.length) {
-      showNextQuestion();
+      setTimeout(() => {
+        showNextQuestion();
+      }, 2000);
     } else {
       showResults();
     }
@@ -521,4 +520,8 @@ form.addEventListener('submit', function (e) {
 // array = array.filter(function (item) {
 //   return item !== n
 // 
+
+
+
+
 
