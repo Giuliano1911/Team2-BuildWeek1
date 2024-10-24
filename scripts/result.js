@@ -48,7 +48,7 @@ const showResults = () => {
   // Aggiorna il testo centrale
   // se il punteggio è maggiore di 50% invece stampa "Congratulations! You passed the exam."
   // sennò stampa "You dont pass the exam"
-  if (percentages.correct > 50) {
+  if (percentages.correct >= 50) {
     const textDiv = document.getElementById('text')
     textDiv.innerHTML = `
     <h2>Congratulations!</h2>

@@ -326,7 +326,7 @@ const questionGenerator = (array, numb, i, randomizedAnswers) => {
   newH4.appendChild(separator)
   newH4.appendChild(totalQuestions)
   newH4.style.textAlign = 'center'
-  newH4.style.marginTop = '15em'
+  newH4.style.marginTop = '22em'
   footer.appendChild(newH4)
 }
 // funzione per prevenire il refresh della pagina
