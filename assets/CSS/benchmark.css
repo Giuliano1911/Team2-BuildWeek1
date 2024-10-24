@@ -179,3 +179,9 @@ footer {
   align-items: center;
   z-index: 1000;
 }
+
+footer{
+  position: absolute;
+  top: 55%; 
+  left: 45%;
+}
